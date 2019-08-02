@@ -10,8 +10,8 @@ let DIR = null
 // Distance travelled is a f(theta) which gets smaller nearer the edge
 
 function setup() {
-  createCanvas(800, 800)
-  // edges = ellipse(400, 400, 750, 750)
+  var cnv = createCanvas(windowHeight, windowHeight)
+  cnv.position(windowWidth/2 - width/2, 0)
   let test_point = new Point(0.86, 0.2223)
   test_point.direction = HALF_PI
 
@@ -54,7 +54,7 @@ function draw() {
 
   if (snake.dead || leave === true) {
     print("Score: ", snake.length)
-    text("Score: " + str(snake.length), 50, 50)
+    text("Score: " + str(snake.length), 0, 50)
     noLoop()
   }
 }
@@ -111,4 +111,12 @@ function keyReleased() {
     DIR = RIGHT_ARROW
   }
   return false
+}
+
+function touchStarted() {
+  if (mouseX < width / 2) {
+    DIR = LEFT_ARROW
+  } else if (mouseX >= width / 2) {
+    DIR = RIGHT_ARROW
+  }
 }
