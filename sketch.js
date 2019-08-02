@@ -15,7 +15,7 @@ function setup() {
   let test_point = new Point(0.86, 0.2223)
   test_point.direction = HALF_PI
 
-  frameRate(8)
+  frameRate(15)
 
   textSize(30)
 
