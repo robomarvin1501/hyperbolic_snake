@@ -6,6 +6,11 @@ let last = null
 
 let DIR = null
 
+let local_storage_name = "hyperbolicsnake"
+let high_score = []
+
+
+
 // TODO snake is represented as polar coords from the circle point
 // Distance travelled is a f(theta) which gets smaller nearer the edge
 
@@ -22,7 +27,18 @@ function setup() {
   snake = new Snake([test_point])
   apple = new Apple()
   snake.goal = apple
+
+  var s_high_score = s_array(high_score)
+  var html_high_score = document.getElementById("score_table00")
+
+  if (localStorage.getItem(local_storage_name) == null) {
+    high_score = [0]
+  } else {
+    high_score = localStorage.getItem(local_storage_name)
+  }
   
+  html_high_score.innerHTML = "High scores: " + s_high_score
+
   
 }
 
@@ -53,8 +69,20 @@ function draw() {
   apple.plot()
 
   if (snake.dead || leave === true) {
+    if (snake.length > high_score[9]) {
+      high_score.push(snake.length)
+      high_score.sort()
+
+      localStorage.setItem(local_storage_name, high_score)
+    } 
+
+    var s_high_score = s_array(high_score)
+    var html_high_score = document.getElementById("score_table00")
+
+    html_high_score.innerHTML = "High scores: \n" + s_high_score
+
     print("Score: ", snake.length)
-    text("Score: " + str(snake.length), 0, 50)
+    text("Score: " + str(snake.length), 750, 50)
     noLoop()
   }
 }
@@ -115,8 +143,22 @@ function keyReleased() {
 
 function touchStarted() {
   if (mouseX < width / 2) {
+    // text("TOUCHED")
     DIR = LEFT_ARROW
   } else if (mouseX >= width / 2) {
+    // text("TOUCHED")
     DIR = RIGHT_ARROW
   }
+}
+
+function s_array(arr) {
+  var s = ''
+  if (arr.length === 0) {
+    return s
+  } else {
+    for (var el of arr) {
+      s += str(el) + '\n'
+    }
+  }
+  return s
 }
