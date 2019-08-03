@@ -29,7 +29,7 @@ function setup() {
   var html_high_score = document.getElementById("score_table00")
 
   if (localStorage.getItem(local_storage_name) == null) {
-    high_score = [0]
+    high_score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
   } else {
     high_score = localStorage.getItem(local_storage_name)
   }
