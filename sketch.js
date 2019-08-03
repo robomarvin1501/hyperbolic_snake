@@ -138,12 +138,10 @@ function keyReleased() {
   return false
 }
 
-function touchStarted() {
+function touchEnded() {
   if (mouseX < width / 2) {
-    // text("TOUCHED")
     DIR = LEFT_ARROW
   } else if (mouseX >= width / 2) {
-    // text("TOUCHED")
     DIR = RIGHT_ARROW
   }
 }
