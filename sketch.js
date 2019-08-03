@@ -7,7 +7,7 @@ let last = null
 let DIR = null
 
 let local_storage_name = "hyperbolicsnake"
-let high_score = []
+let high_score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 
 
@@ -152,7 +152,7 @@ function s_array(arr) {
     return s
   } else {
     for (var el of arr) {
-      s += str(el) + '\n'
+      s += str(el) + '<br/>'
     }
   }
   return s
