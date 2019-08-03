@@ -11,9 +11,6 @@ let high_score = []
 
 
 
-// TODO snake is represented as polar coords from the circle point
-// Distance travelled is a f(theta) which gets smaller nearer the edge
-
 function setup() {
   var cnv = createCanvas(windowHeight, windowHeight)
   cnv.position(windowWidth/2 - width/2, 0)
