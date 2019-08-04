@@ -34,7 +34,6 @@ class Snake {
     }
 
     plot() {
-        // console.log(this.points)
         for (var point of this.points) {
             point.plot()
         }

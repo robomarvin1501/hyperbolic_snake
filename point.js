@@ -17,8 +17,6 @@ class Point {
         var x = Math.round(eucl_r * Math.cos(this.theta) * width / 2)
         var y = Math.round(eucl_r * Math.sin(this.theta) * height / 2)
 
-        // console.log(x, y)
-
         ellipse(int(width/2 + x), int(height/2 - y), int(circ_r), int(circ_r))
     }
 }

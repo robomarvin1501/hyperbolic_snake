@@ -33,15 +33,13 @@ function setup() {
   } else {
     high_score = localStorage.getItem(local_storage_name)
   }
-  
-  html_high_score.innerHTML = "High scores: " + s_high_score
+
+  // html_high_score.innerHTML = "High scores: " + s_high_score
 
   
 }
 
 function draw() {
-  var x = Math.cos(0.2223)
-  var y = Math.sin(0.2223)
   var leave = false
 
   background(255)
@@ -76,7 +74,7 @@ function draw() {
     var s_high_score = s_array(high_score)
     var html_high_score = document.getElementById("score_table00")
 
-    html_high_score.innerHTML = "High scores: \n" + s_high_score
+    // html_high_score.innerHTML = "High scores: \n" + s_high_score
 
     print("Score: ", snake.length)
     text("Score: " + str(snake.length), 750, 50)
@@ -85,7 +83,7 @@ function draw() {
 }
 
 
-function move_point(p, d, angle) { // TODO problem here?
+function move_point(p, d, angle) { 
   var sign4 = d / Math.abs(d)
   if (angle < (-1 * PI)) {
     angle += TWO_PI
