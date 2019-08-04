@@ -41,7 +41,7 @@ function setup() {
   }
 
   // html_high_score.innerHTML = "High scores: " + s_high_score
-
+  let score = document.getElementById("score")
   
 }
 
@@ -60,6 +60,9 @@ function draw() {
   } else if (DIR === RIGHT_ARROW) {
     snake.right_turn()
     DIR = null
+  } else if (DIR === ESCAPE) {
+    apple.replace()
+    DIR = null
   }
 
 
@@ -75,13 +78,15 @@ function draw() {
       high_score.sort()
 
       localStorage.setItem(local_storage_name, high_score)
-    } 
+    }
+
 
     var s_high_score = s_array(high_score)
     var html_high_score = document.getElementById("score_table00")
 
-    // html_high_score.innerHTML = "High scores: \n" + s_high_score
+    // html_high_score.innerHTML = "High scores: <br/" + s_high_score
 
+    score.innerHTML = "Score: " + str(snake.length)
     print("Score: ", snake.length)
     text("Score: " + str(snake.length), 750, 50)
     noLoop()
@@ -138,6 +143,9 @@ function keyReleased() {
     DIR = LEFT_ARROW
   } else if (keyCode === RIGHT_ARROW) {
     DIR = RIGHT_ARROW
+  } else if (keyCode === ESCAPE) {
+    // All is lost. You cannot find the apple. Have a new one!
+    DIR = ESCAPE
   }
   return false
 }
