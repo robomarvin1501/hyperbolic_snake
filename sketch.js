@@ -19,6 +19,7 @@ function setup() {
     var cnv = createCanvas(windowHeight, windowHeight)
     cnv.position(windowWidth/2 - width/2, 0)
   }
+  cnv.parent(sketch_holder);
 
   let test_point = new Point(0.86, 0.2223)
   test_point.direction = HALF_PI
