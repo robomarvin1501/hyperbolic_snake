@@ -87,7 +87,7 @@ function draw() {
 
     // html_high_score.innerHTML = "High scores: <br/" + s_high_score
 
-    score.innerHTML = "Score: " + str(snake.length)
+    // score.innerHTML = "Score: " + str(snake.length)
     print("Score: ", snake.length)
     text("Score: " + str(snake.length), 750, 50)
     noLoop()
