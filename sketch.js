@@ -12,7 +12,8 @@ let high_score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 
 function setup() {
-  if (mobile_and_tablet_check() === true) {
+  var on_mobile = mobile_and_tablet_check()
+  if (on_mobile === true) {
     var cnv = createCanvas(windowWidth, windowWidth)
     cnv.position(windowWidth/2 - width/2, 0)
   } else {
@@ -81,6 +82,7 @@ function draw() {
       localStorage.setItem(local_storage_name, high_score)
     }
 
+    var on_mobile = mobile_and_tablet_check()
 
     var s_high_score = s_array(high_score)
     var html_high_score = document.getElementById("score_table00")
@@ -89,7 +91,13 @@ function draw() {
 
     // score.innerHTML = "Score: " + str(snake.length)
     print("Score: ", snake.length)
-    text("Score: " + str(snake.length), 750, 50)
+    if (on_mobile === true) {
+      textSize(15)
+      text("Score: " + str(snake.length), width - 100, 50)
+    } else if (on_mobile === false) {
+      text("Score: " + str(snake.length), width - 200, 50)
+    }
+    text("Score: " + str(snake.length), width - 200, 50)
     noLoop()
   }
 }
