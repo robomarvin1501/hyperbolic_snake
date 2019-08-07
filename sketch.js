@@ -92,12 +92,10 @@ function draw() {
     // score.innerHTML = "Score: " + str(snake.length)
     print("Score: ", snake.length)
     if (on_mobile === true) {
-      textSize(15)
-      text("Score: " + str(snake.length), width - 100, 50)
+      text("Score: " + str(snake.length), width/2, 50)
     } else if (on_mobile === false) {
       text("Score: " + str(snake.length), width - 200, 50)
     }
-    text("Score: " + str(snake.length), width - 200, 50)
     noLoop()
   }
 }
