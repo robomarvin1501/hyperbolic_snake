@@ -12,14 +12,15 @@ let high_score = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
 
 function setup() {
-  var on_mobile = mobile_and_tablet_check()
-  if (on_mobile === true) {
-    var cnv = createCanvas(windowWidth, windowWidth)
-    cnv.position(windowWidth/2 - width/2, 0)
-  } else {
-    var cnv = createCanvas(windowHeight, windowHeight)
-    cnv.position(windowWidth/2 - width/2, 0)
+  var side = 0
+  if (windowWidth > windowHeight) {
+    side = windowHeight
+  } else if (windowHeight > windowWidth) {
+    side = windowWidth
   }
+
+  var cnv = createCanvas(side, side)
+  cnv.position(windowWidth/2 - width/2, 0)
   cnv.parent(sketch_holder);
 
   let test_point = new Point(0.86, 0.2223)
