@@ -43,7 +43,9 @@ class Snake {
         SPEED += 0.00
         this.add += 2
         this.goal.replace()
-        this.goal.max_dist += 0.1
+        if (this.goal.max_dist <= 2.7) {
+	    this.goal.max_dist += 0.1
+	}
         this.goal.rad_mod *= 0.96
         this.length += 2
     }
